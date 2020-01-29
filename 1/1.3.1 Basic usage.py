@@ -10,7 +10,7 @@ res = tf.matmul(matrix1,matrix2)
 #这时已经创建了3个op，其中包括两个常量，和一个矩阵乘法的操作
 sess = tf.Session()
 #这里就会有人要问，为什么没有全局初始化啊？
-# 这是因为当前图没有变量没有变量
+#这是因为当前图没有变量
 result = sess.run(res)
 print(result)
 sess.close()
