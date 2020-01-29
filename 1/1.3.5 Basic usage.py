@@ -11,8 +11,10 @@ input2 = tf.placeholder(np.float32)
 sig = tf.nn.softmax(input1)
 sig1 = my_softmax(input1)
 add = tf.multiply(input1,input2)
-
+exp = tf.exp(input1)
 with tf.Session() as sess:
     # result = sess.run([add],feed_dict={input1:[7.],input2:[2.]})
     result = sess.run([sig,sig1],feed_dict={input1:[0.6,-1.0,1.0]})
+    print(result)
+    result = sess.run(exp, feed_dict={input1: [0.6, -1.0, 1.0]})
     print(result)
