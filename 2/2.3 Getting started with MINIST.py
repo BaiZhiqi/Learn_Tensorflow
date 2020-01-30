@@ -1,14 +1,20 @@
 import input_data
 import tensorflow as tf
 import numpy as np
-
+#读取数据
 mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
+
+#创建模型
 x = tf.placeholder(dtype=np.float32, shape=[None, 784], name="x")
 y = tf.placeholder(dtype=np.float32, shape=[None, 10], name="y")
 W = tf.Variable(tf.zeros([784, 10]))
 b = tf.Variable(tf.zeros([10]))
 pre = tf.nn.softmax(tf.matmul(x, W) + b)
+
+#设计损失函数
 cross_entropy = -tf.reduce_sum(y * tf.log(pre))
+
+#设计优化器
 train_step = tf.train.GradientDescentOptimizer(0.01).minimize(cross_entropy)
 
 with tf.Session() as sess:
