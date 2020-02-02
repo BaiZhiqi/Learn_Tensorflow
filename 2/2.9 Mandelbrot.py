@@ -47,5 +47,4 @@ if __name__ == '__main__':
 
     for i in range(200):
         step.run()
-        print(sess.run(zs_))
     DisplayFractal(ns.eval())
